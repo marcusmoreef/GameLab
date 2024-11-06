@@ -10,8 +10,23 @@ public class Game {
 		runGame();
 	}
 	
+	public static Room currentRoom = World.buildWorld();
+	
+	public static void print(Object obj) {
+		System.out.println(obj.toString());
+	}
+	
+	public static Item getItemInventory(String a) {
+		for(Item b : inventory) {
+			String c = b.toString();
+			if(c.equals(a)) {
+				return b;
+			}
+		}
+		return null;
+	}
+	
 	public static void runGame() {
-		Room currentRoom = World.buildWorld();
 		Scanner input = new Scanner(System.in);
 		
 		String command; // player's command
@@ -48,7 +63,7 @@ public class Game {
 				}
 				break;
 			case "take":
-				System.out.println("You are trying to take the"+words[1]);
+				System.out.println("You are trying to take the "+words[1]);
 				Item i = currentRoom.getItem(words[1]);
 				if(i==null) {
 					System.out.println("There is no item");
@@ -71,6 +86,32 @@ public class Game {
 						}
 					}
 					System.out.println("There is no such item in your inventory or the room");
+				}
+				break;
+			case "open":
+				if(currentRoom.getItem(words[1])!=null) {
+					currentRoom.getItem(words[1]).open();
+				}
+				else{
+					if(getItemInventory(words[1])==null) {
+						System.out.println("There is no such item");
+					}
+					else {
+						getItemInventory(words[1]).open();
+					}
+				}
+				break;
+			case "use":
+				if(currentRoom.getItem(words[1])!=null) {
+					currentRoom.getItem(words[1]).use();
+				}
+				else{
+					if(getItemInventory(words[1])==null) {
+						System.out.println("There is no such item");
+					}
+					else {
+						getItemInventory(words[1]).use();
+					}
 				}
 				break;
 			default:

@@ -28,4 +28,12 @@ public class Item {
 	public String toString() {
 		return name;
 	}
+	
+	public void open() {
+		Game.print("you can't open that!");
+	}
+	
+	public void use() {
+		Game.print("you can't use that!");
+	}
 }

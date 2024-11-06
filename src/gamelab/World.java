@@ -15,6 +15,8 @@ public class World {
 	Item battery_pack = new Item("battery pack", " a battery pack that can be used to provide elctricty to something");
 	Item cup = new Item("cup", "a cup");
 	Item milk = new Item("milk", "its milk");
+	Combination combination = new Combination("combination", "the combination to the safe");
+	Safe safe = new Safe("safe", "A big safe with something maybe in it");
 	
 	cockpit.addExit(hallway, 's');
 	hallway.addExit(cockpit, 'n');
@@ -31,7 +33,8 @@ public class World {
 	cockpit.setItem("milk",milk);
 	hallway.setItem("flashlight",flashlight);
 	engine.setItem("battery pack",battery_pack);
-	
+	engine.setItem("combination", combination);
+	kitchen.setItem("safe", safe);
 	
 	return cockpit;
 	}
