@@ -4,19 +4,19 @@ public class World {
 	// Builds the game world.
 	// Returns the room the player starts in.
 	public static Room buildWorld() {
-	Room cockpit = new Room("You are in the cockpit.");
-	Room hallway = new Room("You are in the hallway.");
-	Room kitchen = new Room("You are in the kitchen.");
-	Room escape_pods = new Room("You are in the escape pod room.");
-	Room armory = new Room("You are in the armory.");
-	Room engine = new Room("You are in the engine room.");
+	Room cockpit = new Room("You are in the cockpit.", "cockpit");
+	Room hallway = new Room("You are in the hallway.", "hallway");
+	Room kitchen = new Room("You are in the kitchen.", "kitchen");
+	Room escape_pods = new Room("You are in the escape pod room.", "escape pods");
+	Room armory = new Room("You are in the armory.", "armory");
+	Room engine = new Room("You are in the engine room.", "engine");
 	Item crowbar = new Item("crowbar", "A black metal bar that can be used to open or break things.");
 	Item flashlight = new Item("flashlight", "a red flashlight that you can use to see in dark places.");
 	Item battery_pack = new Item("battery pack", " a battery pack that can be used to provide elctricty to something");
-	Item cup = new Item("cup", "a cup");
-	Item milk = new Item("milk", "its milk");
 	Combination combination = new Combination("combination", "the combination to the safe");
 	Safe safe = new Safe("safe", "A big safe with something maybe in it");
+	Item key = new Key("Key", "A gold key to unlock door");
+	
 	
 	cockpit.addExit(hallway, 's');
 	hallway.addExit(cockpit, 'n');
@@ -29,12 +29,12 @@ public class World {
 	armory.addExit(engine,'d');
 	engine.addExit(armory,'u');
 	cockpit.setItem("crowbar",crowbar);
-	cockpit.setItem("cup",cup);
-	cockpit.setItem("milk",milk);
 	hallway.setItem("flashlight",flashlight);
 	engine.setItem("battery pack",battery_pack);
 	engine.setItem("combination", combination);
 	kitchen.setItem("safe", safe);
+	engine.setLock(true);
+	kitchen.setItem("key", key);
 	
 	return cockpit;
 	}

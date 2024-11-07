@@ -12,7 +12,7 @@ public class Safe extends Item{
 		}
 		else {
 			Game.print("Using the combination, you open the safe and find a diamond inside! Naturally, you pocket the diamond.");
-			Item diamond = new Item("diamond", "a shiney diamond");
+			Item diamond = new Item("diamond", "a shiny diamond");
 			Game.inventory.add(diamond);
 		}
 	}

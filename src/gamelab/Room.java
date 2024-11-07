@@ -13,9 +13,12 @@ public class Room {
 		private Room west;
 		private Room up;
 		private Room down;
+		private boolean lock;
+		private String name;
 	
-		public Room(String n) {
-			description = n;
+		public Room(String d, String n) {
+			description = d;
+			name = n;
 		}
 		public Room getExit(char exit) {
 			if (exit=='n') {
@@ -73,5 +76,17 @@ public class Room {
 		}
 		public void removeItem(String s) {
 			Item.remove(s);
+		}
+		public void setLock(Boolean b) {
+			lock = b;
+		}
+		public boolean getLock() {
+			return lock;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String b) {
+			name = b;
 		}
 	}
