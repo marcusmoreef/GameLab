@@ -81,14 +81,18 @@ public class Game {
 				if(currentRoom.getItem(words[1])!=null) {
 					System.out.println(currentRoom.getItem(words[1]).getDesc());
 				}
-				else if(currentRoom.getItem(words[1])==null) {
+				else{
+					boolean found = false;
 					for(Item y : inventory) {
 						if(y.getName().equals(words[1])) {
+							found = true;
 							System.out.println(y.getDesc());
 							break;
 						}
 					}
-					System.out.println("There is no such item in your inventory or the room");
+					if(found == false) {
+						System.out.println("This item is not in your inventory or in the this room");
+					}
 				}
 				break;
 			case "open":
