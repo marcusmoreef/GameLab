@@ -13,9 +13,10 @@ public class World {
 	Item crowbar = new Item("crowbar", "A black metal bar that can be used to open or break things.");
 	Item flashlight = new Item("flashlight", "a red flashlight that you can use to see in dark places.");
 	Item battery_pack = new Item("battery pack", " a battery pack that can be used to provide elctricty to something");
+	Item key = new Key("Key", "A gold key to unlock door");
 	Combination combination = new Combination("combination", "the combination to the safe");
 	Safe safe = new Safe("safe", "A big safe with something maybe in it");
-	Item key = new Key("Key", "A gold key to unlock door");
+
 	
 	
 	cockpit.addExit(hallway, 's');
